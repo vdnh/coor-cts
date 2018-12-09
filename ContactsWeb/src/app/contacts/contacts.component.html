@@ -1,0 +1,31 @@
+<div class="container spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Liste des transporters</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label for="Mot cle : "></label>
+        <input type="text" [(ngModel)]="motCle" #ctrl="ngModel"/>
+        <button class="btn btn-primary" (click)="chercher()">Chercher</button>
+      </div>
+      <table class="table table-striped">
+        <tr>
+          <th>Nom</th><th>Raison Sociale</th><th>Email</th><th>Telephone</th><th>Edit</th><th>Delete</th>
+        </tr>
+        <tr *ngFor="let c of pageContact.content">
+            <td>{{c.nom}}</td><td>{{c.prenom}}</td><td>{{c.email}}</td><td>{{c.tel}}</td>
+            <td><a class="spacer font-size:30px text-decoration:underline" (click)="gotoDetailContact(c.id)">Edit</a></td>
+            <td><a (click)="deleteContact(c.id)">Delete</a></td>
+        </tr>
+      </table>
+      <div class="container">
+        <ul class="nav nav-pills"><strong>page: </strong>
+          <li *ngFor="let p of pages; let i=index">
+            <!-- button (click)="gotoPage(i)">{{i}}</button -->
+               <a class="spacer clickable" (click)="gotoPage(i)"> {{i}} </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

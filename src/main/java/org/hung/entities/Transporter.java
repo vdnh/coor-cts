@@ -1,6 +1,5 @@
 package org.hung.entities;
 
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,13 +17,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor
-public class Contact implements Serializable{
+public class Transporter {
     @Id @GeneratedValue
     private Long id;
     private String nom;
-    private String prenom;
+    private String raison_sociale;
     @Temporal(TemporalType.DATE)
-    private Date dateNaissance;
+    private Date depuis;
     private String email;
     private long tel;
     private String photo;    

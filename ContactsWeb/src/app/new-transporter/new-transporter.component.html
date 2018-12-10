@@ -1,33 +1,33 @@
 <div class="container spacer">
   <div class="panel panel-primary" *ngIf="mode==1">
-    <div class="panel-heading">Nouveau Contact</div>
+    <div class="panel-heading">Nouveau Transporter</div>
       <div class="panel-body">
         <div>
           <div class="form-group">
             <label class="control-label">Nom : </label>  
-            <input class="form-control" type="text" [(ngModel)]="contact.nom" />
+            <input class="form-control" type="text" [(ngModel)]="transporter.nom" />
           </div>
           <div class="form-group">
-              <label class="control-label">Prenom : </label>  
-              <input class="form-control" type="text" [(ngModel)]="contact.prenom" />
+              <label class="control-label">Raison Social : </label>  
+              <input class="form-control" type="text" [(ngModel)]="transporter.raison_sociale" />
           </div>
           <div class="form-group">
               <label class="control-label">Email : </label>  
-              <input class="form-control" type="text" [(ngModel)]="contact.email" />
+              <input class="form-control" type="text" [(ngModel)]="transporter.email" />
           </div>
           <div class="form-group">
-              <label class="control-label">Date de naissance : </label>  
-              <input class="form-control" type="date" [(ngModel)]="contact.dateNaissance" />
+              <label class="control-label">En Affaire Depuis : </label>  
+              <input class="form-control" type="date" [(ngModel)]="transporter.depuis" />
           </div>
           <div class="form-group">
               <label class="control-label">Telephone : </label>  
-              <input class="form-control" type="number" [(ngModel)]="contact.tel" />
+              <input class="form-control" type="number" [(ngModel)]="transporter.tel" />
           </div>
           <div class="form-group">
               <label class="control-label">Photo : </label>  
-              <input class="form-control" type="text" [(ngModel)]="contact.photo" />
+              <input class="form-control" type="text" [(ngModel)]="transporter.photo" />
           </div>
-          <div> <button class="btn btn-primary" (click)="saveContact()" >Save</button></div>
+          <div> <button class="btn btn-primary" (click)="saveTransporter()" >Save</button></div>
         </div>
       </div>   
 </div>
@@ -38,29 +38,29 @@
         <div>
           <div class="form-group">
             <label class="control-label">Nom : </label>  
-            <label >{{contact.nom}}</label>
+            <label >{{transporter.nom}}</label>
           </div>
           <div class="form-group">
-              <label class="control-label">Prenom : </label>  
-              <label >{{contact.prenom}}</label>
+              <label class="control-label">Raison Social : </label>  
+              <label >{{transporter.raison_sociale}}</label>
           </div>
           <div class="form-group">
               <label class="control-label">Email : </label>  
-              <label >{{contact.email}}</label>
+              <label >{{transporter.email}}</label>
           </div>
           <div class="form-group">
-              <label class="control-label">Date de naissance : </label>  
-              <label >{{contact.dateNaissance}}</label>
+              <label class="control-label">En Affaire Depuis : </label>  
+              <label >{{transporter.depuis}}</label>
           </div>
           <div class="form-group">
               <label class="control-label">Telephone : </label>  
-              <label >{{contact.tel}}</label>
+              <label >{{transporter.tel}}</label>
           </div>
           <div class="form-group">
               <label class="control-label">Photo : </label>  
-              <label >{{contact.photo}}</label>
+              <label >{{transporter.photo}}</label>
           </div>
-          <div> <button class="btn btn-primary" (click)="mode=1">Nouveau Contact</button></div>
+          <div> <button class="btn btn-primary" (click)="mode=1">Nouveau Transporter</button></div>
         </div>
       </div>   
 </div>

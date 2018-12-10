@@ -13,19 +13,24 @@ import lombok.NoArgsConstructor;
 
 /**
  *
- * @author vdnh
+ * @author admin
  */
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor
-public class Contact implements Serializable{
+public class Shipper  implements Serializable{
     @Id @GeneratedValue
-    private Long id;
-    private String nom;
-    private String prenom;
+    private Long id; // to identify shipper
+    private String nom; // enterprise's name
+    private String raison_sociale;
     @Temporal(TemporalType.DATE)
-    private Date dateNaissance;
+    private Date depuis;
     private String email;
     private long tel;
-    private String photo;    
+    private long fax;
+    private boolean status = false;
+    private String login_name;
+    private String password;
+
 }
+

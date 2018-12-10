@@ -2,21 +2,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from "@angular/forms";
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
-import { HttpModule } from '@angular/http';
+
+import { ContactsComponent } from './contacts/contacts.component';
 import {ContactsService} from './contacts/contacts.service';
-import {FormsModule} from "@angular/forms";
 import { NouveauContactComponent } from './nouveau-contact/nouveau-contact.component';
-import { DetailContactComponent } from './detail-contact/detail-contact.component'
+import { DetailContactComponent } from './detail-contact/detail-contact.component';
+
+import { TransportersComponent } from './transporters/transporters.component'
+import { TransportersService } from './transporters/transporters.service';
+import { DetailTransporterComponent } from './detail-transporter/detail-transporter.component';
+import { NewTransporterComponent } from './new-transporter/new-transporter.component';
 
 const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'nouveau-contact', component:  NouveauContactComponent},
   {path: 'detail-contact/:id', component:  DetailContactComponent},
+  {path: 'transporters', component: TransportersComponent},
+  {path: 'new-transporter', component:  NewTransporterComponent},
+  {path: 'detail-transporter/:id', component:  DetailTransporterComponent},
   {path: '', redirectTo: '/about', pathMatch: 'full'}
 ];
 
@@ -26,12 +35,15 @@ const appRoutes: Routes = [
     ContactsComponent,
     AboutComponent,
     NouveauContactComponent,
-    DetailContactComponent
+    DetailContactComponent,
+    TransportersComponent,
+    DetailTransporterComponent,
+    NewTransporterComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), HttpModule, FormsModule
   ],
-  providers: [ContactsService],
+  providers: [ContactsService, TransportersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

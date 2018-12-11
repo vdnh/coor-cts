@@ -1,0 +1,69 @@
+<div class="container spacer">
+    <div class="panel panel-primary" *ngIf="mode==1">
+      <div class="panel-heading">Edit Shipper - ID : {{shipper.id}}</div>
+        <div class="panel-body">
+          <div>
+            <div class="form-group">
+              <label class="control-label">Nom :</label>  
+              <input class="form-control" type="text" [(ngModel)]="shipper.nom" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Raison Sociale :</label>  
+                <input class="form-control" type="text" [(ngModel)]="shipper.raison_sociale" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">En Affaire Depuis:</label>  
+                <input class="form-control" type="date" [(ngModel)]="shipper.depuis" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Email :</label>  
+                <input class="form-control" type="text" [(ngModel)]="shipper.email" />
+            </div>            
+            <div class="form-group">
+                <label class="control-label">Telephone :</label>  
+                <input class="form-control" type="number" [(ngModel)]="shipper.tel" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Photo :</label>  
+                <input class="form-control" type="text" [(ngModel)]="shipper.photo" />
+            </div>
+            <div> <button class="btn btn-primary" (click)="saveShipper()">Ok</button>  
+                <button class="btn btn-primary" routerLink="/shippers">Quit</button></div>
+        </div>
+        </div>   
+  </div>
+  
+  <div class="panel panel-primary" *ngIf="mode==2">
+        <div class="panel-heading">Confirmation</div>
+          <div class="panel-body">
+            <div>
+              <div class="form-group">
+                <label class="control-label">Nom :</label>  
+                <label >{{shipper.nom}}</label>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Prenom :</label>  
+                  <label >{{shipper.raison_sociale}}</label>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Email :</label>  
+                  <label >{{shipper.email}}</label>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">En Affaire Depuis :</label>  
+                  <label >{{shipper.depuis}}</label>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Telephone :</label>  
+                  <label >{{shipper.tel}}</label>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Photo :</label>  
+                  <label >{{shipper.photo}}</label>
+              </div>
+              <div> <button class="btn btn-primary" (click)="mode=1" routerLink="/shippers">Ok</button></div>
+            </div>
+          </div>   
+    </div>
+  
+  </div>

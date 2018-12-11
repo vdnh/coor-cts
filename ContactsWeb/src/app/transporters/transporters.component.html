@@ -20,7 +20,7 @@
       <div class="container">
         <ul class="nav nav-pills"><strong>page: </strong>
           <li *ngFor="let p of pages; let i=index">
-               <a class="spacer clickable" (click)="gotoPage(i)"> {{i}} </a>
+               <a class="spacer clickable" (click)="gotoPage(i)"> <strong>{{i}}</strong> </a>
           </li>
         </ul>
       </div>

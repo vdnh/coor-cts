@@ -17,6 +17,10 @@ import { TransportersComponent } from './transporters/transporters.component'
 import { TransportersService } from './transporters/transporters.service';
 import { DetailTransporterComponent } from './detail-transporter/detail-transporter.component';
 import { NewTransporterComponent } from './new-transporter/new-transporter.component';
+import { ShippersComponent } from './shippers/shippers.component';
+import { DetailShipperComponent } from './detail-shipper/detail-shipper.component';
+import { NewShipperComponent } from './new-shipper/new-shipper.component';
+import { ShippersService } from './shippers/shippers.service';
 
 const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},
@@ -26,6 +30,9 @@ const appRoutes: Routes = [
   {path: 'transporters', component: TransportersComponent},
   {path: 'new-transporter', component:  NewTransporterComponent},
   {path: 'detail-transporter/:id', component:  DetailTransporterComponent},
+  {path: 'shippers', component: ShippersComponent},
+  {path: 'new-shipper', component:  NewShipperComponent},
+  {path: 'detail-shipper/:id', component:  DetailShipperComponent},
   {path: '', redirectTo: '/about', pathMatch: 'full'}
 ];
 
@@ -38,12 +45,15 @@ const appRoutes: Routes = [
     DetailContactComponent,
     TransportersComponent,
     DetailTransporterComponent,
-    NewTransporterComponent
+    NewTransporterComponent,
+    ShippersComponent,
+    DetailShipperComponent,
+    NewShipperComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), HttpModule, FormsModule
   ],
-  providers: [ContactsService, TransportersService],
+  providers: [ContactsService, TransportersService, ShippersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,32 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import { map } from 'rxjs/operators';
-import { TransportersService } from './transporters.service';
+import { ShippersService } from './shippers.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-transporters',
-  templateUrl: './transporters.component.html',
-  styleUrls: ['./transporters.component.css']
+  selector: 'app-shippers',
+  templateUrl: './shippers.component.html',
+  styleUrls: ['./shippers.component.css']
 })
-export class TransportersComponent implements OnInit {
+export class ShippersComponent implements OnInit {
 
-  pageTransporter:any;
+  pageShipper:any;
   motCle:string="";
   currentPage:number=0;
   size:number=5;
 
   pages:Array<number>;
 
-  constructor(public http:Http, public transporterservice:TransportersService, public router:Router) { }
+  constructor(public http:Http, public shipperservice:ShippersService, public router:Router) { }
 
   ngOnInit() {
     this.doSearch();
   }
 
   doSearch(){
-    this.transporterservice.getTransporters(this.motCle, this.currentPage, this.size).subscribe(data=>{
-      this.pageTransporter=data;
+    this.shipperservice.getShippers(this.motCle, this.currentPage, this.size).subscribe(data=>{
+      this.pageShipper=data;
       this.pages=new Array(data.totalPages);
     }, err=>{
       console.log(err);
@@ -39,12 +39,12 @@ export class TransportersComponent implements OnInit {
     this.currentPage=i;
     this.doSearch();
   }
-  gotoDetailTransporter(id:number){
-    this.router.navigate(['detail-transporter',id]);
+  gotoDetailShipper(id:number){
+    this.router.navigate(['detail-shipper',id]);
   }
 
   deleteTransporter(id:number){
-    this.transporterservice.deleteTransporter(id)
+    this.shipperservice.deleteShipper(id)
     .subscribe(data=>{
     }, err=>{
       console.log(err);

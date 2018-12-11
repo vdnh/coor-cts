@@ -23,17 +23,7 @@ export class ContactsComponent implements OnInit {
   constructor(public http:Http, public contactservice:ContactsService, public router:Router) { }
 
   ngOnInit() {
-    /*
-    this.http.get("http://localhost:8080/chercherContacts?mc=H&size=4&page=0").pipe(map(res => res.json()))
-    .subscribe(data => {
-        this.pageContact = data;
-      });//*/
-    //console.log("Contact component is initializing ....")
-    //this.contactservice.getContacts().subscribe(data=>{
-      //this.pageContact=data;
-    //}, err=>{
-      //console.log(err);
-   // })
+    this.doSearch();
   }
 
   doSearch(){

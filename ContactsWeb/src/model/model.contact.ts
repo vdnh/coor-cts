@@ -1,9 +1,13 @@
 export class Contact{
-    in:number;
+    id:number=0;
     nom:string="";
-    prenom:string="";
+    prenom:string="";    
+    fonction:string="";
     email:string="";
-    dateNaissance:Date;
     tel:number=0;
+    fax:number=0;
     photo:string="";
+    id_shipper:number=0;
+    id_transporter:number=0;
+    id_manager:number=0;
 }

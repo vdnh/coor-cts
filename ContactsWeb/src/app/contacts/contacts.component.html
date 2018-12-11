@@ -9,10 +9,10 @@
       </div>
       <table class="table table-striped">
         <tr>
-          <th>Nom</th><th>Prenom</th><th>Email</th><th>Telephone</th><th>Edit</th><th>Delete</th>
+          <th>Nom</th><th>Prenom</th><th>Fonction</th><th>Email</th><th>Telephone</th><th>Edit</th><th>Delete</th>
         </tr>
         <tr *ngFor="let c of pageContact.content">
-            <td>{{c.nom}}</td><td>{{c.prenom}}</td><td>{{c.email}}</td><td>{{c.tel}}</td>
+            <td>{{c.nom}}</td><td>{{c.prenom}}</td><td>{{c.fonction}}</td><td>{{c.email}}</td><td>{{c.tel}}</td>
             <td><a class="spacer font-size:30px text-decoration:underline" (click)="gotoDetailContact(c.id)">Edit</a></td>
             <td><a (click)="deleteContact(c.id)">Delete</a></td>
         </tr>

@@ -24,6 +24,10 @@
                 <input class="form-control" type="number" [(ngModel)]="shipper.tel" />
             </div>
             <div class="form-group">
+                <label class="control-label">Fax :</label>  
+                <input class="form-control" type="number" [(ngModel)]="shipper.fax" />
+            </div>            
+            <div class="form-group">
                 <label class="control-label">Photo :</label>  
                 <input class="form-control" type="text" [(ngModel)]="shipper.photo" />
             </div>
@@ -57,6 +61,10 @@
                   <label class="control-label">Telephone :</label>  
                   <label >{{shipper.tel}}</label>
               </div>
+              <div class="form-group">
+                <label class="control-label">Fax :</label>  
+                <label >{{shipper.fax}}</label>
+            </div>              
               <div class="form-group">
                   <label class="control-label">Photo :</label>  
                   <label >{{shipper.photo}}</label>

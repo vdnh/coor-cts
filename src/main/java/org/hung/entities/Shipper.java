@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor
-public class Shipper1  implements Serializable{
+public class Shipper  implements Serializable{
     @Id @GeneratedValue
     private Long id; // to identify shipper
     private String nom; // enterprise's name

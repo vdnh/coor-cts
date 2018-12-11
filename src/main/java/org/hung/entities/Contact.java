@@ -1,12 +1,12 @@
 package org.hung.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+//import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+//import javax.persistence.Temporal;
+//import javax.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,9 +23,12 @@ public class Contact implements Serializable{
     private Long id;
     private String nom;
     private String prenom;
-    @Temporal(TemporalType.DATE)
-    private Date dateNaissance;
+    private String fonction;
     private String email;
     private long tel;
-    private String photo;    
+    private long fax;
+    private String photo;
+    private long idShipper;
+    private long idTransporter;
+    private long idManager;
 }

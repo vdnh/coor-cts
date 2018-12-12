@@ -16,6 +16,11 @@ export class ContactsService{
         .pipe(map(res => res.json()));
     }
 
+    contactsDeShipper(id_shipper:number){
+        return this.http.get(this.adServer+":8080/contactsDeShipper?id_shipper="+id_shipper)
+        .pipe(map(res => res.json()));
+    }
+
     saveContacts(contact:Contact){
         return this.http.post(this.adServer+":8080/contacts",contact)
         .pipe(map(res => res.json()));
@@ -24,6 +29,11 @@ export class ContactsService{
     getDetailContact(id:number){
         return this.http.get(this.adServer+":8080/contacts/"+id)
         .pipe(map(res => res.json()));
+    }
+
+    updateContact(id:number, c:Contact){
+        return this.http.put.(this.adServer+":8080/contacts/"+id);
+        //.pipe(map(res => res.json()));
     }
 
     deleteContact(id:number){

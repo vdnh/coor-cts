@@ -75,5 +75,11 @@ public class ContactRestService {
             @RequestParam(name = "size", defaultValue = "5")int size){
         //Pageable pb = (Pageable) PageRequest.of(page,size);
         return contactRepository.chercher("%"+mc+"%", PageRequest.of(page, size));
-    }    
+    }
+
+    @RequestMapping(value = "/contactsDeShipper", method = RequestMethod.GET)
+    public List<Contact> chercherCDS(@RequestParam(name = "id_shipper", defaultValue = "-1" ) Long id_shipper) 
+    {
+        return contactRepository.contactsDeShipper(id_shipper);
+    }
 }

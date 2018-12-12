@@ -24,11 +24,13 @@ export class NewShipperComponent implements OnInit {
       this.shipper=data;
       this.contact.id_shipper=this.shipper.id;
       console.log("id actual of shipper : "+this.shipper.id);
-      console.log("idShipper of contact : "+this.contact.id_shipper)
+      console.log("idShipper of contact : "+this.contact.id_shipper);
+      console.log("This Contact all info : "+this.contact.toString());
+      this.saveContact();
     }, err=>{
       console.log(err);
     });
-    this.saveContact();
+    //this.saveContact();
     /*
     this.contactsService.saveContacts(this.contact).subscribe(data=>{
       console.log("Contact before : "+this.contact)  
@@ -40,7 +42,7 @@ export class NewShipperComponent implements OnInit {
   }
 
   saveContact(){
-    this.contactsService.saveContacts(this.contact).subscribe(data=>{
+    this.contactsService.saveContacts(this.contact).subscribe(data1=>{
       //this.mode=2;
       //console.log(data);
     }, err=>{

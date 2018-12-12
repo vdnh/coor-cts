@@ -2,75 +2,64 @@
     <div class="panel panel-primary" *ngIf="mode==1">
       <div class="panel-heading">Edit Shipper - ID : {{shipper.id}}</div>
         <div class="panel-body">
-          <div>
-            <div class="form-group">
-              <label class="control-label">Nom :</label>  
-              <input class="form-control" type="text" [(ngModel)]="shipper.nom" />
-            </div>
-            <div class="form-group">
-                <label class="control-label">Raison Sociale :</label>  
-                <input class="form-control" type="text" [(ngModel)]="shipper.raison_sociale" />
-            </div>
-            <div class="form-group">
-                <label class="control-label">En Affaire Depuis:</label>  
-                <input class="form-control" type="date" [(ngModel)]="shipper.depuis" />
-            </div>
-            <div class="form-group">
-                <label class="control-label">Email :</label>  
-                <input class="form-control" type="text" [(ngModel)]="shipper.email" />
-            </div>            
-            <div class="form-group">
-                <label class="control-label">Telephone :</label>  
-                <input class="form-control" type="number" [(ngModel)]="shipper.tel" />
-            </div>
-            <div class="form-group">
-                <label class="control-label">Fax :</label>  
-                <input class="form-control" type="number" [(ngModel)]="shipper.fax" />
-            </div>            
-            <div class="form-group">
-                <label class="control-label">Photo :</label>  
-                <input class="form-control" type="text" [(ngModel)]="shipper.photo" />
-            </div>
+                <table class="table table-striped">
+                        <tr>
+                          <th>Nom</th><th>Raison Sociale</th><th>En Affaire Depuis</th><th>Email</th><th>Telephone</th><th>Fax</th><th>Photo</th>
+                        </tr>
+                        <tr>
+                          <td><input class="form-control" type="text" [(ngModel)]="shipper.nom" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="shipper.raison_sociale" /></td>
+                          <td><input class="form-control" type="date" [(ngModel)]="shipper.depuis" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="shipper.email" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="shipper.tel" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="shipper.fax" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="shipper.photo" /></td>
+                        </tr>
+                        <tr><td colspan="2"><strong>Adresse</strong></td></tr>
+                        <tr><td colspan="2">Ca s'en vient</td></tr>
+                        <tr><td colspan="2"><strong>Personnes a contact</strong></td></tr>
+                        <tr>
+                          <th>Nom</th><th>Prenom</th><th>Fonction</th><th>Email</th><th>Telephone</th><th>Fax</th><th>Photo</th>
+                        </tr>
+                        <tr *ngFor="let contact of contacts">
+                          <td><input class="form-control" type="text" [(ngModel)]="contact.nom" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="contact.prenom" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="contact.fonction" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="contact.email" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="contact.tel" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="contact.fax" /></td>
+                          <td><input class="form-control" type="text" [(ngModel)]="contact.photo" /></td>
+                        </tr>        
+                </table>            
+         
             <div> <button class="btn btn-primary" (click)="saveShipper()">Ok</button>  
                 <button class="btn btn-primary" routerLink="/shippers">Quit</button></div>
-        </div>
+        <!--/div-->
         </div>   
   </div>
   
   <div class="panel panel-primary" *ngIf="mode==2">
         <div class="panel-heading">Confirmation</div>
           <div class="panel-body">
-            <div>
-              <div class="form-group">
-                <label class="control-label">Nom :</label>  
-                <label >{{shipper.nom}}</label>
-              </div>
-              <div class="form-group">
-                  <label class="control-label">Prenom :</label>  
-                  <label >{{shipper.raison_sociale}}</label>
-              </div>
-              <div class="form-group">
-                  <label class="control-label">Email :</label>  
-                  <label >{{shipper.email}}</label>
-              </div>
-              <div class="form-group">
-                  <label class="control-label">En Affaire Depuis :</label>  
-                  <label >{{shipper.depuis}}</label>
-              </div>
-              <div class="form-group">
-                  <label class="control-label">Telephone :</label>  
-                  <label >{{shipper.tel}}</label>
-              </div>
-              <div class="form-group">
-                <label class="control-label">Fax :</label>  
-                <label >{{shipper.fax}}</label>
-            </div>              
-              <div class="form-group">
-                  <label class="control-label">Photo :</label>  
-                  <label >{{shipper.photo}}</label>
-              </div>
-              <div> <button class="btn btn-primary" (click)="mode=1" routerLink="/shippers">Ok</button></div>
-            </div>
+            <table class="table table-striped">
+                <tr>
+                    <th>Nom</th><th>Raison Sociale</th><th>En Affaire Depuis</th><th>Email</th><th>Telephone</th><th>Fax</th><th>Photo</th>
+                </tr>
+                <tr>
+                    <td>{{shipper.nom}}</td><td>{{shipper.raison_sociale}}</td><td>{{shipper.depuis}}</td><td>{{shipper.email}}</td><td>{{shipper.tel}}</td><td>{{shipper.fax}}</td><td>{{shipper.photo}}</td>
+                </tr>
+                <tr><td colspan="2"><strong>Adresse</strong></td></tr>
+                <tr><td colspan="2">Ca s'en vient</td></tr>
+                <tr><td colspan="2"><strong>Personnes a contact</strong></td></tr>
+                <tr>
+                    <th>Nom</th><th>Prenom</th><th>Fonction</th><th>Email</th><th>Telephone</th><th>Fax</th>
+                </tr>
+                <tr *ngFor="let contact of contacts">
+                    <td>{{contact.nom}}</td><td>{{contact.prenom}}</td><td>{{contact.fonction}}</td><td>{{contact.email}}</td><td>{{contact.tel}}</td><td>{{contact.fax}}</td>
+                </tr>                
+            </table>
+                <div> <button class="btn btn-primary" (click)="mode=1" routerLink="/shippers">Ok</button></div>
+            <!--/div-->
           </div>   
     </div>
   

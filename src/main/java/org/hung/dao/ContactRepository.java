@@ -2,6 +2,7 @@ package org.hung.dao;
 
 //import java.awt.print.Pageable;
 //import java.util.List;
+import java.util.List;
 import org.hung.entities.Contact;
 import org.springframework.data.domain.Page;
 //import org.springframework.data.domain.PageRequest;
@@ -19,4 +20,13 @@ import org.springframework.data.repository.query.Param;
 public interface ContactRepository extends JpaRepository<Contact, Long>{
     @Query("select c from Contact c where c.nom like :x")
     public Page<Contact> chercher(@Param("x") String mc, Pageable pageable);
+    
+    @Query("select c from Contact c where c.id_shipper like :x")
+    public List<Contact> contactsDeShipper(@Param("x") Long id_shipper);
+    
+//    @Query("select c from Contact c where c.id_transporter like :x")
+//    public List<Contact> contactsDeTransporter(Long id_shipper);
+//    
+//    @Query("select c from Contact c where c.id_manager like :x")
+//    public List<Contact> contactsDeManager(Long id_shipper);
 }

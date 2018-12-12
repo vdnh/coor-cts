@@ -28,7 +28,7 @@ public class Contact implements Serializable{
     private long tel;
     private long fax;
     private String photo;
-    private long idShipper;
-    private long idTransporter;
-    private long idManager;
+    private long id_shipper;
+    private long id_transporter;
+    private long id_manager;
 }

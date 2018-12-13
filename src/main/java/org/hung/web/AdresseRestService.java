@@ -57,11 +57,17 @@ public class AdresseRestService {
         return adresseRepository.save(a);
     }    
     
-    @RequestMapping(value = "/chercherAdresses", method = RequestMethod.GET)
-    public Page<Adresse> chercher(
+    @RequestMapping(value = "/chercherCodePostal", method = RequestMethod.GET)
+    public Page<Adresse> chercherCodePostal(
         @RequestParam(name = "mc", defaultValue = "") String mc, 
         @RequestParam(name = "page", defaultValue = "0")int page, 
         @RequestParam(name = "size", defaultValue = "5")int size){
-        return adresseRepository.chercher("%"+mc+"%", PageRequest.of(page, size));
+        return adresseRepository.chercherCodePostal("%"+mc+"%", PageRequest.of(page, size));
     }    
+    
+    @RequestMapping(value = "/adressesDeShipper", method = RequestMethod.GET)
+    public List<Adresse> chercherADS(@RequestParam(name = "id_shipper", defaultValue = "-1" ) Long id_shipper) 
+    {
+        return adresseRepository.adressesDeShipper(id_shipper);
+    }
 }

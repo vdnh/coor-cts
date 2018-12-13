@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Shipper } from '../../model/model.shipper';
 import { ShippersService } from '../shippers/shippers.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Alert } from 'selenium-webdriver';
 import { Contact } from 'src/model/model.contact';
 import { ContactsService } from '../contacts/contacts.service';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Location } from '@angular/common';
+import { Adresse } from 'src/model/model.adresse';
+import { AdressesService } from '../contacts/adresses.service';
 
 @Component({
   selector: 'app-detail-shipper',
@@ -16,10 +19,14 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class DetailShipperComponent implements OnInit {
 
   shipper:Shipper=new Shipper();
-  id:number;
+  id:number; // this is the id of shipper
   mode:number=1;
   contacts:Array<Contact>;
-  constructor(public activatedRoute:ActivatedRoute, public shippersService:ShippersService, public contactsService:ContactsService){    
+  adresses:Array<Adresse>;
+  addcontact:Contact=new Contact(); // to add more contact
+  addadresse:Adresse=new Adresse(); // to add more adresse
+  constructor(public activatedRoute:ActivatedRoute, public shippersService:ShippersService, public contactsService:ContactsService,
+    public adressesService:AdressesService, private router: Router){    
     this.id=activatedRoute.snapshot.params['id'];
   }
 
@@ -34,7 +41,15 @@ export class DetailShipperComponent implements OnInit {
       this.contacts=data;
     }, err=>{
       console.log(err);
-    })
+    });
+    this.adressesService.adressesDeShipper(this.id).subscribe(data=>{
+      this.adresses=data;
+      this.adresses.forEach(a=>{
+        console.log("Adress : "+a.num+" "+a.rue )
+      })
+    }, err=>{
+      console.log();
+    });
   }
   saveShipper(){
     this.shippersService.saveShippers(this.shipper).subscribe(data=>{
@@ -49,18 +64,50 @@ export class DetailShipperComponent implements OnInit {
       }, err=>{
         console.log(err)
       })
-      //console.log("contact id:  "+obj.id);
-      //console.log("contact name:  "+obj.nom);
     });    
-    /*
-    for(let c of this.contacts){
-      this.contactsService.updateContact(c.id, c).subscribe(data=>{
-        alert("Mise a jour - update.");
-      }, err=>{
-        console.log(err)
-      })
-      console.log("contact id:  "+c.id);
-      console.log("contact name:  "+c.nom);
-   }//*/
   }
+
+  addContact(){
+    this.addcontact.id_shipper=this.id;
+    this.contactsService.saveContacts(this.addcontact).subscribe(data=>{
+      alert("Contact added.");
+      this.refresh()
+    }, err=>{
+      console.log(err)
+    })
+  }
+
+  deleteContact(id:number){
+    this.contactsService.deleteContact(id)
+    .subscribe(data=>{
+      alert("Contact : "+this.addcontact.nom+" a ete supprime.");
+      this.refresh();
+    }, err=>{
+      console.log(err);
+    });
+  }
+
+  addAdresse(){
+    this.addadresse.id_shipper=this.id;
+    this.adressesService.saveAdresses(this.addadresse).subscribe(data=>{
+      alert("Adresse added.");
+      this.refresh()
+    }, err=>{
+      console.log(err)
+    })
+  }
+
+  deleteAdresse(id:number){
+    this.adressesService.deleteAdresse(id)
+    .subscribe(data=>{
+      alert("Adresse : "+this.addadresse.num+" a ete supprime.");
+      this.refresh();
+    }, err=>{
+      console.log(err);
+    });
+  }  
+
+  refresh(): void {
+    window.location.reload();
+}
 }

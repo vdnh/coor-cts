@@ -21,6 +21,7 @@ import { ShippersComponent } from './shippers/shippers.component';
 import { DetailShipperComponent } from './detail-shipper/detail-shipper.component';
 import { NewShipperComponent } from './new-shipper/new-shipper.component';
 import { ShippersService } from './shippers/shippers.service';
+import { AdressesService } from './contacts/adresses.service';
 
 const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},
@@ -53,7 +54,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), HttpModule, FormsModule
   ],
-  providers: [ContactsService, TransportersService, ShippersService],
+  providers: [ContactsService, TransportersService, ShippersService, AdressesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

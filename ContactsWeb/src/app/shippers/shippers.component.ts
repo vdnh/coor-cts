@@ -43,7 +43,7 @@ export class ShippersComponent implements OnInit {
     this.router.navigate(['detail-shipper',id]);
   }
 
-  deleteTransporter(id:number){
+  deleteShipper(id:number){
     this.shipperservice.deleteShipper(id)
     .subscribe(data=>{
     }, err=>{

@@ -25,7 +25,7 @@ public class Adresse implements Serializable{
     private String province;
     private String pays;
     private boolean principal;
-    private Long idShipper;
-    private Long idTransporter;
-    private Long idManager;
+    private Long id_shipper;
+    private Long id_transporter;
+    private Long id_manager;
 }

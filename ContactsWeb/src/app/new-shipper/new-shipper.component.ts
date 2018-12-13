@@ -27,9 +27,9 @@ export class NewShipperComponent implements OnInit {
       this.shipper=data;
       this.contact.id_shipper=this.shipper.id;
       this.adresse.id_shipper=this.shipper.id;
-      console.log("id actual of shipper : "+this.shipper.id);
-      console.log("idShipper of contact : "+this.contact.id_shipper);
-      console.log("This Contact all info : "+this.contact.toString());
+      // console.log("id actual of shipper : "+this.shipper.id);
+      // console.log("idShipper of contact : "+this.contact.id_shipper);
+      // console.log("This Contact all info : "+this.contact.toString());
       this.saveContact();
       this.saveAdresse();
     }, err=>{

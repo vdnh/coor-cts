@@ -26,7 +26,7 @@ export class DetailShipperComponent implements OnInit {
   addcontact:Contact=new Contact(); // to add more contact
   addadresse:Adresse=new Adresse(); // to add more adresse
   constructor(public activatedRoute:ActivatedRoute, public shippersService:ShippersService, public contactsService:ContactsService,
-    public adressesService:AdressesService, private router: Router){    
+    public adressesService:AdressesService){    
     this.id=activatedRoute.snapshot.params['id'];
   }
 
@@ -44,33 +44,38 @@ export class DetailShipperComponent implements OnInit {
     });
     this.adressesService.adressesDeShipper(this.id).subscribe(data=>{
       this.adresses=data;
-      this.adresses.forEach(a=>{
-        console.log("Adress : "+a.num+" "+a.rue )
-      })
+      // this.adresses.forEach(a=>{
+      //   console.log("Adress : "+a.num+" "+a.rue )
+      // })
     }, err=>{
       console.log();
     });
   }
   saveShipper(){
     this.shippersService.saveShippers(this.shipper).subscribe(data=>{
-      alert("Mise a jour.");
+      //alert("Mise a jour.");
       this.mode=2;
     }, err=>{
       console.log(err);
     });
     this.contacts.forEach(obj => {
       this.contactsService.saveContacts(obj).subscribe(data=>{
-        alert("Mise a jour - contact.");
       }, err=>{
         console.log(err)
       })
     });    
+    this.adresses.forEach(obj => {
+      this.adressesService.saveAdresses(obj).subscribe(data=>{
+      }, err=>{
+        console.log(err)
+      })
+    });
   }
 
   addContact(){
     this.addcontact.id_shipper=this.id;
     this.contactsService.saveContacts(this.addcontact).subscribe(data=>{
-      alert("Contact added.");
+      //alert("Contact added.");
       this.refresh()
     }, err=>{
       console.log(err)

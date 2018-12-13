@@ -70,4 +70,10 @@ public class AdresseRestService {
     {
         return adresseRepository.adressesDeShipper(id_shipper);
     }
+    
+    @RequestMapping(value = "/adressesDeTransporter", method = RequestMethod.GET)
+    public List<Adresse> chercherADT(@RequestParam(name = "id_transporter", defaultValue = "-1" ) Long id_transporter) 
+    {
+        return adresseRepository.adressesDeTransporter(id_transporter);
+    }
 }

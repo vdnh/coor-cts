@@ -17,11 +17,11 @@ public interface AdresseRepository  extends JpaRepository<Adresse, Long>{
     @Query("select a from Adresse a where a.code_postal like :x")
     public Page<Adresse> chercherCodePostal(@Param("x") String mc, Pageable pageable);
     
-    @Query("select a from Adresse a where a.id_shipper like :x")
+    @Query("select a from Adresse a where a.id_shipper = :x")
     public List<Adresse> adressesDeShipper(@Param("x") Long id_shipper);
     
-//    @Query("select c from Contact c where c.id_transporter like :x")
-//    public List<Contact> contactsDeTransporter(Long id_shipper);
+    @Query("select a from Adresse a where a.id_transporter = :x")
+    public List<Adresse> adressesDeTransporter(@Param("x") Long id_transporter);
 //    
 //    @Query("select c from Contact c where c.id_manager like :x")
 //    public List<Contact> contactsDeManager(Long id_shipper);

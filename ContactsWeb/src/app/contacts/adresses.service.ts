@@ -5,6 +5,7 @@ import { Adresse } from "../../model/model.adresse";
 
 @Injectable()
 export class AdressesService{
+  
     adServer="//192.168.0.131";
     constructor(public http:Http){
 
@@ -18,6 +19,11 @@ export class AdressesService{
 
     adressesDeShipper(id_shipper:number){
         return this.http.get(this.adServer+":8080/adressesDeShipper?id_shipper="+id_shipper)
+        .pipe(map(res => res.json()));
+    }
+    
+    adressesDeTransporter(id_transporter:number){
+        return this.http.get(this.adServer+":8080/adressesDeTransporter?id_transporter="+id_transporter)
         .pipe(map(res => res.json()));
     }
 

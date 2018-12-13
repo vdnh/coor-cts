@@ -21,12 +21,11 @@ public interface ContactRepository extends JpaRepository<Contact, Long>{
     @Query("select c from Contact c where c.nom like :x")
     public Page<Contact> chercher(@Param("x") String mc, Pageable pageable);
     
-    @Query("select c from Contact c where c.id_shipper like :x")
+    @Query("select c from Contact c where c.id_shipper = :x")
     public List<Contact> contactsDeShipper(@Param("x") Long id_shipper);
     
-//    @Query("select c from Contact c where c.id_transporter like :x")
-//    public List<Contact> contactsDeTransporter(Long id_shipper);
-//    
+    @Query("select c from Contact c where c.id_transporter = :x")
+    public List<Contact> contactsDeTransporter(@Param("x") Long id_transporter);//    
 //    @Query("select c from Contact c where c.id_manager like :x")
 //    public List<Contact> contactsDeManager(Long id_shipper);
 }

@@ -5,6 +5,7 @@ import { Contact } from "../../model/model.contact";
 
 @Injectable()
 export class ContactsService{
+
     adServer="//192.168.0.131";
     constructor(public http:Http){
 
@@ -18,6 +19,11 @@ export class ContactsService{
 
     contactsDeShipper(id_shipper:number){
         return this.http.get(this.adServer+":8080/contactsDeShipper?id_shipper="+id_shipper)
+        .pipe(map(res => res.json()));
+    }
+
+    contactsDeTransporter(id_transporter:number){
+        return this.http.get(this.adServer+":8080/contactsDeTransporter?id_transporter="+id_transporter)
         .pipe(map(res => res.json()));
     }
 

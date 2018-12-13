@@ -84,4 +84,10 @@ public class ContactRestService {
     {
         return contactRepository.contactsDeShipper(id_shipper);
     }
+    
+    @RequestMapping(value = "/contactsDeTransporter", method = RequestMethod.GET)
+    public List<Contact> chercherCDT(@RequestParam(name = "id_transporter", defaultValue = "-1" ) Long id_transporter) 
+    {
+        return contactRepository.contactsDeTransporter(id_transporter);
+    }    
 }

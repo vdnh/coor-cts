@@ -39,6 +39,7 @@ public class ContactRestService {
     
     @RequestMapping(value = "/contacts", method = RequestMethod.POST)
     public Contact save(@RequestBody Contact c){
+        //System.out.println("Contact save : "+c.toString());
         return contactRepository.save(c);
     }
     
@@ -65,6 +66,7 @@ public class ContactRestService {
 //        if (c.getTel()== 0) c.setTel(con.getTel());
 //        if (c.getPhoto()== null) c.setPhoto(con.getPhoto());
 //        
+    //System.out.println("Contact updateContact : "+c.toString());
         return contactRepository.save(c);
     }    
     

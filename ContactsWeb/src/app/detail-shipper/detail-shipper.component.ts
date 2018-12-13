@@ -44,14 +44,23 @@ export class DetailShipperComponent implements OnInit {
       console.log(err);
     });
     this.contacts.forEach(obj => {
-      this.contactsService.saveContacts(obj);
-      console.log("contact id:  "+obj.id);
-      console.log("contact name:  "+obj.nom);
+      this.contactsService.saveContacts(obj).subscribe(data=>{
+        alert("Mise a jour - contact.");
+      }, err=>{
+        console.log(err)
+      })
+      //console.log("contact id:  "+obj.id);
+      //console.log("contact name:  "+obj.nom);
     });    
+    /*
     for(let c of this.contacts){
-      this.contactsService.saveContacts(c);
+      this.contactsService.updateContact(c.id, c).subscribe(data=>{
+        alert("Mise a jour - update.");
+      }, err=>{
+        console.log(err)
+      })
       console.log("contact id:  "+c.id);
       console.log("contact name:  "+c.nom);
-   }
+   }//*/
   }
 }

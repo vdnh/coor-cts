@@ -32,8 +32,8 @@ export class ContactsService{
     }
 
     updateContact(id:number, c:Contact){
-        return this.http.put.(this.adServer+":8080/contacts/"+id);
-        //.pipe(map(res => res.json()));
+       return this.http.put(this.adServer+":8080/contacts/"+id, c)
+        .pipe(map(res => res.json()));
     }
 
     deleteContact(id:number){
